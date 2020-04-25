@@ -1,6 +1,6 @@
 # Docker
 
-Docker is a tool designed to make it easier to create, deploy and run application by using container. Docker is a open-source software.
+Docker is a tool designed to make it easier to create, deploy and run application by using container. Docker is a open-source software. It's written in Go.
 Docker, Inc. is a company that developed docker tool.
 
 
@@ -13,4 +13,50 @@ Backgroud (bit of a history):
 Actually the usage of container is not something which came into existance with docker. The container existed ever since the origin of Linux OS. But back then there was not formal way of containerising the application which is now very well marketed and fullfilled by Docker Inc company.
 
 In Linux OS before docker, companies like Google used to tweek Linux OS kernel technologies like namespaces and cgroups (Control Group) to deploy their application. 
-Docker company which was initially dotCloud, Inc. came up with this idea of leveraging and made it product but essentially leveraging the same same underlying technologies like namespaces and cgroup.
+Docker company which was initially dotCloud, Inc. came up with this idea of leveraging the same underlying technologies like namespaces and cgroup together with Union file system and made it product known as Docker.
+
+
+### Namespaces
+These namespaces provide a layer of isolation. Each aspect of a container runs in a separate namespace and its access is limited to that namespace.
+
+### Control Groups
+A cgroup limits an application to a specific set of resources. Control groups allow Docker Engine to share available hardware resources to containers and optionally enforce limits and constraints. For example, you can limit the memory available to a specific container.
+
+### Union File System
+Union file systems, or UnionFS, are file systems that operate by creating layers, making them very lightweight and fast. Docker Engine uses UnionFS to provide the building blocks for containers. Docker Engine can use multiple UnionFS variants, including AUFS, btrfs, vfs, and DeviceMapper.
+
+
+## Docker Architecture
+
+Docker architecture can be found [here](https://docs.docker.com/get-started/overview/#docker-architecture)
+
+
+## Docker Installation
+
+Docker is available for Mac, Windows and Linux as Docker for Mac and Docker for Windows and Docker for Linux.
+
+For Windows 10 Home edition as Hyper-V is not available we can't use Docker for Windows, in which case there is option to use Docker toolbox.
+
+Install Docker toolbox [here](https://docs.bitnami.com/containers/how-to/install-docker-in-windows/)
+
+Install Docker for Windows [here](https://docs.docker.com/docker-for-windows/install/)
+
+The above installation are for development/test usage and not for production.
+
+
+
+### What are images?
+
+
+### Containerizing an App
+
+
+
+
+# Reference:
+
+1. https://opensource.com/resources/what-docker
+
+2. https://docs.docker.com/get-started/overview/#docker-architecture
+
+3. 
