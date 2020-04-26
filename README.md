@@ -50,6 +50,37 @@ The above installation are for development/test usage and not for production.
 
 ### Containerizing an App
 
+#### Working with Dockerfile
+For working with Dockerfile in windows using docker toolbox and running virtual box 
+
+1. Created a Dockerfile [here]()
+
+2. placed the Dockerfile in the same location as the code to be copied to conatiner
+
+3. Ran below command to build image out of above Dockerfile
+```
+docker build -t nginx-hello-world:1.0 .  
+```
+
+4. To run container from the above image we created 
+```
+docker run --name nginxHW -d -p 8080:80 nginx-hello-world:1.0
+```
+
+5. To know the IP address of the docker tool box, run below command 
+```
+docker-machine ip default
+```
+
+6. use above IP and port 8080 to see the webpage like http://192.168.99.102:8080
+
+
+
+
+
+### Few Docker Commands
+
+
 
 
 
