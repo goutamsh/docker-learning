@@ -75,6 +75,29 @@ docker-machine ip default
 6. use above IP and port 8080 to see the webpage like http://192.168.99.102:8080
 
 
+#### Pushing new image to docker hub
+
+1. Login to docker Hub
+```
+docker login --username=goutamsh
+```
+After Login Success
+
+2. Check the list of current images and see which one need to be pushed
+```
+docker images
+```
+
+3. Create a tag for the image which needs to be pushed
+```
+docker tag 0afb4ed988dd goutamsh/nginx-hello-world:1.0
+```
+
+4. Push the image for example
+```
+docker push goutamsh/nginx-hello-world:1.0
+```
+
 
 
 
