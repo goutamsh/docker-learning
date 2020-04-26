@@ -72,6 +72,12 @@ docker run --name nginxHW -d -p 8080:80 nginx-hello-world:1.0
 docker-machine ip default
 ```
 
+What is Docker Machine?
+
+Machine lets you create Docker hosts on your computer, on cloud providers, and inside your own data center. It creates servers, installs Docker on them, then configures the Docker client to talk to them.
+
+Docker Host is a server machine where the docker daemon runs. Docker host can be bare metal, VM machine, iso, image hosted on some cloud etc.
+
 6. use above IP and port 8080 to see the webpage like http://192.168.99.102:8080
 
 
@@ -105,6 +111,10 @@ docker push goutamsh/nginx-hello-world:1.0
 
 
 
+### Configuring local docker client to connect to remote docker host
+
+Reference [here](https://www.kevinkuszyk.com/2016/11/28/connect-your-docker-client-to-a-remote-docker-host/)
+
 
 
 # Reference:
@@ -113,4 +123,3 @@ docker push goutamsh/nginx-hello-world:1.0
 
 2. https://docs.docker.com/get-started/overview/#docker-architecture
 
-3. 
