@@ -53,7 +53,7 @@ The above installation are for development/test usage and not for production.
 #### Working with Dockerfile
 For working with Dockerfile in windows using docker toolbox and running virtual box 
 
-1. Created a Dockerfile [here]()
+1. Created a Dockerfile [here](https://github.com/goutamsh/docker-learning/blob/master/nginx/Dockerfile)
 
 2. placed the Dockerfile in the same location as the code to be copied to conatiner
 
