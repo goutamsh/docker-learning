@@ -121,6 +121,16 @@ docker push goutamsh/alpine-node-hello-world:1.0
 5. The pushed image can be found [here](https://hub.docker.com/repository/docker/goutamsh/nginx-hello-world)
 
 
+#### Docker multistage build
+
+https://github.com/dockersamples/atsea-sample-shop-app/tree/master/app
+
+
+### Container Lifecycle
+
+
+Container can be started, stopped, restarted and the deleted.
+Starting a stopped container will basically resume. All data is retained at the time of stopping. All the data sticks around until we tell container to be deleted.
 
 
 ### Few Docker Commands
@@ -147,7 +157,7 @@ docker run --name nginxHW -d -p 8080:80 goutamsh/nginx-hello-world:1.0
 
 docker logs alpineNodeHW
 
-
+docker history alpine-node-hello-world:1.0
 
 ```
 ### Configuring local docker client to connect to remote docker host
