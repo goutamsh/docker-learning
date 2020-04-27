@@ -50,6 +50,11 @@ The above installation are for development/test usage and not for production.
 
 ### Containerizing an App
 
+Dockerfile is used to build docker image with application code and all the environment it needs.
+Dockerfile contains the set instruction to build image.
+An image is nothing but a bunch of layers, it's not a single blob object with all files. That's why it's lightweight.
+
+
 #### Working with Dockerfile
 For working with Dockerfile in windows using docker toolbox and running virtual box 
 
@@ -60,11 +65,15 @@ For working with Dockerfile in windows using docker toolbox and running virtual 
 3. Ran below command to build image out of above Dockerfile
 ```
 docker build -t nginx-hello-world:1.0 .  
+
+docker build -t alpine-node-hello-world:1.0 .
 ```
 
 4. To run container from the above image we created 
 ```
 docker run --name nginxHW -d -p 8080:80 nginx-hello-world:1.0
+
+docker run --name alpineNodeHW -d -p 8088:8080 alpine-node-hello-world:1.0
 ```
 
 5. To know the IP address of the docker tool box, run below command 
@@ -79,6 +88,8 @@ Machine lets you create Docker hosts on your computer, on cloud providers, and i
 Docker Host is a server machine where the docker daemon runs. Docker host can be bare metal, VM machine, iso, image hosted on some cloud etc.
 
 6. use above IP and port 8080 to see the webpage like http://192.168.99.102:8080
+and 
+http://192.168.99.102:8088/
 
 
 #### Pushing new image to docker hub
@@ -97,20 +108,48 @@ docker images
 3. Create a tag for the image which needs to be pushed
 ```
 docker tag 0afb4ed988dd goutamsh/nginx-hello-world:1.0
+
+docker tag c9dc785280ca goutamsh/alpine-node-hello-world:1.0
 ```
 
-4. Push the image for example
+4. Push the image for example 
 ```
 docker push goutamsh/nginx-hello-world:1.0
+
+docker push goutamsh/alpine-node-hello-world:1.0
 ```
+5. The pushed image can be found [here](https://hub.docker.com/repository/docker/goutamsh/nginx-hello-world)
 
 
 
 
 ### Few Docker Commands
+```
+docker info
+
+docker ps
+
+docker images
+
+
+docker image inspect nginx-hello-world:1.0
+
+docker stop nginxHW
+
+docker container rm nginxHW
+
+docker image rm goutamsh/nginx-hello-world:1.0
+
+
+docker login --username=goutamsh
+
+docker run --name nginxHW -d -p 8080:80 goutamsh/nginx-hello-world:1.0
+
+docker logs alpineNodeHW
 
 
 
+```
 ### Configuring local docker client to connect to remote docker host
 
 Reference [here](https://www.kevinkuszyk.com/2016/11/28/connect-your-docker-client-to-a-remote-docker-host/)
