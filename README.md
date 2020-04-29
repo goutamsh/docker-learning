@@ -46,7 +46,8 @@ The above installation are for development/test usage and not for production.
 
 
 ### What are images?
-
+An image is a stopped container. It's not a full blob object instead consists of the layers that's what makes it lightweight. 
+An image consists of a base image like alpine (linux os) or ngnix(reverse proxy/web server) and then bunch of layers on top of it as per the usecase.
 
 ### Containerizing an App
 
@@ -125,6 +126,57 @@ docker push goutamsh/alpine-node-hello-world:1.0
 
 https://github.com/dockersamples/atsea-sample-shop-app/tree/master/app
 
+### Docker swarm mode
+
+Docker swarm mode is a cluster of docker nodes. It consists of master node and worker node.
+It's secure as it's used PKI encryption with certificates for communication between the mangers and worker nodes.
+
+docker swarm init --advertise-addr 192.168.99.102
+
+docker node ls
+
+To add a worker to this swarm, run the following command:
+
+docker swarm join --token SWMTKN-1-0z0hyja0vv6x81kt44r7yyl5et6bv5js1h5cxxnwbv6quhlqy4-13r6erfx4abp0ypsywvgm4p8y 192.168.99.102:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+
+docker swarm join-token manager
+
+docker swarm join-token worker
+
+
+### Services
+
+docker service create -d --name my-first-svc --replicas 3 -p 8080:8080 goutamsh/alpine-node-hello-world:1.0
+
+docker node ps
+
+docker service ls
+
+
+### Secrets 
+
+
+https://docs.docker.com/engine/reference/commandline/secret_create/
+
+
+docker secret create my_secret secretfile.txt
+
+docker secret ls
+
+
+create service with secret
+
+docker service create -d --name my-first-svc --secret my_secret --replicas 3 -p 8080:8080 goutamsh/alpine-node-hello-world:1.0        
+
+login to container to see if secret is accessible
+
+docker container exec -it cc sh  
+
+ls /run/secrets/
+Inside contaner we can see secret un-encrypted
+
 
 ### Container Lifecycle
 
@@ -158,6 +210,14 @@ docker run --name nginxHW -d -p 8080:80 goutamsh/nginx-hello-world:1.0
 docker logs alpineNodeHW
 
 docker history alpine-node-hello-world:1.0
+
+
+--Running commands inside container
+
+docker exec <container_name> <command_to_exc>
+docker exec -it <container_name> sh
+--<container_name> can be few characters of the container_id from "docker ps" command
+
 
 ```
 ### Configuring local docker client to connect to remote docker host
