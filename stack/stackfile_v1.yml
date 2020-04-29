@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  web:
+    image: goutamsh/alpine-node-hello-world:1.0
+    build: .
+    ports:
+      - "8000:8080"

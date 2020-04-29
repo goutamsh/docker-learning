@@ -178,6 +178,32 @@ ls /run/secrets/
 Inside contaner we can see secret un-encrypted
 
 
+### Volumes for persistence
+
+https://docs.docker.com/storage/volumes/
+
+docker volume create my-vol
+
+docker volume ls
+
+docker volume inspect my-vol
+
+mounting the volume to service 
+
+docker service create -d --name my-first-svc --secret my_secret --mount source=my-vol,target=/app --replicas 3 -p 8080:8080 goutamsh/alpine-node-hello-world:1.0    
+
+docker exec -it e9 sh
+
+ls /app
+
+### Stacks 
+
+
+docker stack deploy --compose-file stackfile_v1.yml my-first-stack
+
+docker stack ls
+
+
 ### Container Lifecycle
 
 
