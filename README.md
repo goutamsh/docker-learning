@@ -251,9 +251,26 @@ docker exec -it <container_name> sh
 Reference [here](https://www.kevinkuszyk.com/2016/11/28/connect-your-docker-client-to-a-remote-docker-host/)
 
 
+### Springboot with docker
 
+https://spring.io/guides/gs/spring-boot-docker/
 
+Springboot application is [here]()
+It exposes an endpoint on port 9100 (so application can be accessed from http://localhost:9100 if this springboot application is run directly on local machine or from docker-machine ip)
 
+Dockerfile to containerize the above springboot is [here]()
+
+Commands to build
+
+```
+docker build -t springboot-with-docker .
+
+docker run -p 9200:9100 springboot-with-docker
+
+```
+
+The above command is mapping external port 9200 to internal port 9100 on the container.
+so application can be accessed with http://<docker-machine ip>:9200
 
 # Reference:
 
